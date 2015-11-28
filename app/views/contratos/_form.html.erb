@@ -1,0 +1,71 @@
+<%= form_for(@contrato, :html => { :multipart => true }) do |f| %>
+  <% if @contrato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
+
+      <ul>
+      <% @contrato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="form-group col-md-12">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, :class=>"form-control",:placeholder=>"Nome",:size=>"80" %>
+  </div>
+  </div>
+  <div class="field">
+    <div class="form-group col-md-6">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco, :class=>"form-control",:placeholder=>"Endereco" %></div>
+  </div>
+  <div class="field">
+    <div class="form-group col-md-6">
+    <%= f.label :bairro %><br>
+    <%= f.text_field :bairro, :class=>"form-control",:placeholder=>"Bairro" %></div>
+  </div>
+  
+  <div class="field">
+    <div class="form-group col-md-4">
+    <%= f.label :estado %><br>
+     <%= f.collection_select(:id, Estado.order(:nome),
+                                    :id, :nome, :prompt => true) %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="form-group col-md-4">
+    <%= f.label :cidade %><br>
+    <%= f.collection_select(:id, Cidade.order(:nome),
+                                    :id, :nome, :prompt => true) %>
+    </div>
+  </div>
+  <div class="field">
+    <div class="form-group col-md-5">
+    <%= f.label :foneFixo %><br>
+    <%= f.text_field :foneFixo, :class=>"form-control",:placeholder=>"Telefone Fixo" %></div>
+  </div>
+  <div class="field">
+    <div class="form-group col-md-5">
+    <%= f.label :celular %><br>
+    <%= f.text_field :celular, :class=>"form-control",:placeholder=>"Celular com DDD" %></div>
+  </div>
+
+  <div class="field">
+    <div class="form-group col-md-12">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, :class=>"form-control",:placeholder=>"E-mail" %>
+  </div></div>
+  <div class="field">
+   <div class="form-group col-md-4">
+    <%= f.label :foto %><br>
+    <%= f.file_field :foto %></div>
+  </div>
+
+ <div class="form-group col-md-4">
+  <div class="actions">
+    <%= f.submit %></br>
+  </div></div>
+<% end %>

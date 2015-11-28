@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cidades</h1>
+<div class="col-md-6">
+        <div class="input-group h2">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cidades.each do |cidade| %>
+      <tr>
+        <td><%= cidade.nome %></td>
+        <td><%= cidade.estado %></td>
+        <td><%= link_to 'Show', cidade, :class =>"btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_cidade_path(cidade),:class =>"btn btn-warning btn-xs" %></td>
+        <td><%= link_to 'Destroy', cidade, method: :delete, data: { confirm: 'Are you sure?' },:class =>"btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @cidades %>
+<br>
+
+<%= link_to 'New Cidade', new_cidade_path %>

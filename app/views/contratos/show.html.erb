@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @contrato.nome, :class=>"form-control",:placeholder=>"Número do vinho" %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @contrato.endereco, :class=>"form-control" %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @contrato.bairro, :class=>"form-control" %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @contrato.estado %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @contrato.cidade %>
+</p>
+
+<p>
+  <strong>Fonefixo:</strong>
+  <%= @contrato.foneFixo %>
+</p>
+
+<p>
+  <strong>Celular:</strong>
+  <%= @contrato.celular %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contrato.email %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @contrato.foto, :class=>"form-control" %>
+    <%= image_tag(@contrato.foto_url, :width => 200) if @contrato.foto.present? %>
+</p>
+
+<%= link_to 'Edit', edit_contrato_path(@contrato) %> |
+<%= link_to 'Back', contratos_path %>

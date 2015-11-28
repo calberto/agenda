@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cidade.nome, :class=>"form-control" %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @cidade.estado, :class=>"form-control" %>
+</p>
+
+<%= link_to 'Edit', edit_cidade_path(@cidade) %> |
+<%= link_to 'Back', cidades_path %>
